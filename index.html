@@ -2,12 +2,204 @@
 <html lang="th" class="h-full">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>ครบรอบ 1 ปี 3 เดือน 💕</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         body {
             box-sizing: border-box;
+        }
+        
+        /* Mobile and Tablet Responsive Adjustments */
+        @media (max-width: 768px) {
+            .page {
+                padding: 1rem;
+            }
+            
+            .text-8xl {
+                font-size: 4rem !important;
+            }
+            
+            .text-7xl {
+                font-size: 3.5rem !important;
+            }
+            
+            .text-6xl {
+                font-size: 3rem !important;
+            }
+            
+            .text-5xl {
+                font-size: 2.5rem !important;
+            }
+            
+            .text-4xl {
+                font-size: 2rem !important;
+            }
+            
+            .love-letter {
+                width: 60px;
+                height: 60px;
+                font-size: 2rem;
+            }
+            
+            .memory-card {
+                padding: 1.5rem;
+                margin: 1rem;
+            }
+            
+            .nav-button {
+                padding: 0.75rem;
+            }
+            
+            .nav-button svg {
+                width: 1.5rem;
+                height: 1.5rem;
+            }
+            
+            .photo-frame {
+                height: 200px;
+            }
+            
+            .meaning-card {
+                padding: 2rem;
+                margin: 1rem;
+                max-width: 90vw;
+            }
+            
+            .floating {
+                font-size: 1.5rem !important;
+            }
+            
+            .heart-pulse {
+                font-size: 3rem !important;
+            }
+            
+            .orbit-element {
+                font-size: 1.2rem !important;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .text-8xl {
+                font-size: 3rem !important;
+            }
+            
+            .text-7xl {
+                font-size: 2.5rem !important;
+            }
+            
+            .text-6xl {
+                font-size: 2rem !important;
+            }
+            
+            .text-5xl {
+                font-size: 1.8rem !important;
+            }
+            
+            .text-4xl {
+                font-size: 1.5rem !important;
+            }
+            
+            .love-letter {
+                width: 50px;
+                height: 50px;
+                font-size: 1.5rem;
+                margin: 0.25rem;
+            }
+            
+            .memory-card {
+                padding: 1rem;
+                margin: 0.5rem;
+            }
+            
+            .photo-frame {
+                height: 180px;
+            }
+            
+            .meaning-card {
+                padding: 1.5rem;
+                margin: 0.5rem;
+                max-width: 95vw;
+            }
+            
+            .heart-pulse {
+                font-size: 2.5rem !important;
+            }
+            
+            .orbit-element {
+                font-size: 1rem !important;
+            }
+            
+            .rotating-ring.ring-outer {
+                width: 280px;
+                height: 280px;
+                top: 20px;
+                left: 20px;
+            }
+            
+            .rotating-ring.ring-middle {
+                width: 200px;
+                height: 200px;
+                top: 60px;
+                left: 60px;
+            }
+            
+            .rotating-ring.ring-inner {
+                width: 120px;
+                height: 120px;
+                top: 100px;
+                left: 100px;
+            }
+        }
+        
+        /* iPad Specific Adjustments */
+        @media (min-width: 768px) and (max-width: 1024px) {
+            .love-letter {
+                width: 70px;
+                height: 70px;
+                font-size: 2.2rem;
+            }
+            
+            .memory-card {
+                padding: 2.5rem;
+            }
+            
+            .photo-frame {
+                height: 240px;
+            }
+            
+            .meaning-card {
+                padding: 2.5rem;
+                max-width: 600px;
+            }
+        }
+        
+        /* Touch-friendly adjustments */
+        @media (hover: none) and (pointer: coarse) {
+            .love-letter:hover {
+                transform: none;
+            }
+            
+            .love-letter:active {
+                transform: scale(0.9);
+                background: linear-gradient(135deg, #fbbf24, #f59e0b);
+            }
+            
+            .photo-frame:hover {
+                transform: none;
+            }
+            
+            .photo-frame:active {
+                transform: scale(0.98);
+            }
+            
+            .nav-button:hover {
+                transform: none;
+            }
+            
+            .nav-button:active {
+                transform: scale(0.95);
+            }
         }
         
         @import url('https://fonts.googleapis.com/css2?family=Sarabun:wght@300;400;600;700&display=swap');
@@ -942,7 +1134,7 @@
                     <div class="text-center mb-6">
                         <p class="text-lg text-gray-600">ตั้งแต่วันที่ 8 กรกฎาคม พ.ศ. 2567</p>
                     </div>
-                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 text-center">
+                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 md:gap-6 text-center">
                         <div class="text-gray-700">
                             <div class="text-4xl font-bold sparkle" id="years">0</div>
                             <div class="text-lg font-medium">ปี 🌸</div>
@@ -994,7 +1186,7 @@
                     ความทรงจำของเรา ✨
                 </h2>
                 
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-8">
                     <!-- รูปที่ 1 -->
                     <div class="photo-frame rounded-2xl h-64 overflow-hidden cursor-pointer group">
                         <img src="./IMG_20240312_225822.jpg" alt="ความทรงจำพิเศษ - 12 มีนาคม 2567" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300" onerror="this.style.display='none'; this.parentElement.innerHTML='<div class=\'h-full flex items-center justify-center bg-gradient-to-br from-pink-100 to-pink-200\'><div class=\'text-center text-pink-600\'><div class=\'text-4xl mb-2\'>📸</div><div class=\'text-lg font-medium\'>รูปที่ 1</div><div class=\'text-sm opacity-70\'>12 มีนาคม 2567</div></div></div>';">
@@ -1133,17 +1325,17 @@
                         </div>
                     </div>
                     
-                    <div class="flex flex-wrap justify-center items-center gap-4 mb-8">
+                    <div class="flex flex-wrap justify-center items-center gap-2 sm:gap-4 mb-8">
                         <button class="love-letter" data-letter="I" data-meaning="Imagine — ฉันจินตนาการถึงเธอทุกวัน">I</button>
                         
                         <!-- ช่องว่างระหว่าง I กับ LOVE -->
-                        <div class="mx-6"></div>
+                        <div class="mx-2 sm:mx-6"></div>
                         
                         <button class="love-letter" data-letter="L" data-meaning="Life — ชีวิตของฉันมีค่าเพราะมีเธอ">L</button>
                         <button class="love-letter" data-letter="O" data-meaning="Only — เธอคือเพียงคนเดียวในใจ">O</button>
                         <button class="love-letter" data-letter="V" data-meaning="Value — ฉันเห็นคุณค่าในทุกสิ่งที่เธอเป็น">V</button>
                         <button class="love-letter" data-letter="E" data-meaning="Eternal — ความรักของฉันจะไม่มีวันสิ้นสุด">E</button>
-                        <div class="text-4xl mx-4">💕</div>
+                        <div class="text-2xl sm:text-4xl mx-2 sm:mx-4">💕</div>
                         <button class="love-letter" data-letter="Y" data-meaning="You — เธอคือเหตุผลของทุกอย่าง">Y</button>
                         <button class="love-letter" data-letter="O2" data-meaning="Oasis — เธอคือความสงบในใจกลางทะเลทรายชีวิต">O</button>
                         <button class="love-letter" data-letter="U" data-meaning="Universe — เธอคือจักรวาลทั้งใบของฉัน">U</button>
@@ -1503,8 +1695,44 @@
             }, 800);
         }
 
+        // Device Detection and Auto-scaling
+        function detectDevice() {
+            const userAgent = navigator.userAgent;
+            const isIOS = /iPad|iPhone|iPod/.test(userAgent);
+            const isAndroid = /Android/.test(userAgent);
+            const isTablet = /iPad/.test(userAgent) || (isAndroid && !/Mobile/.test(userAgent));
+            const isMobile = /iPhone|iPod|Android.*Mobile/.test(userAgent);
+            
+            // Add device classes to body
+            document.body.classList.add(
+                isIOS ? 'ios-device' : 'non-ios',
+                isAndroid ? 'android-device' : 'non-android',
+                isTablet ? 'tablet-device' : 'non-tablet',
+                isMobile ? 'mobile-device' : 'non-mobile'
+            );
+            
+            // Auto-scale for different devices
+            if (isMobile) {
+                document.documentElement.style.fontSize = '14px';
+            } else if (isTablet) {
+                document.documentElement.style.fontSize = '16px';
+            } else {
+                document.documentElement.style.fontSize = '16px';
+            }
+            
+            console.log('📱 อุปกรณ์:', {
+                isIOS,
+                isAndroid,
+                isTablet,
+                isMobile,
+                userAgent: userAgent.substring(0, 50) + '...'
+            });
+        }
+
         // Initialize countdown
         document.addEventListener('DOMContentLoaded', function() {
+            // Detect device first
+            detectDevice();
             const startDate = new Date('2024-07-08T00:00:00+07:00');
             
             function updateCountdown() {
@@ -1676,5 +1904,5 @@
             modal.remove();
         }
     </script>
-<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'98b648ba35bd7335',t:'MTc1OTkzMzI4MS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'98b66f50033f7335',t:'MTc1OTkzNDg2MS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
