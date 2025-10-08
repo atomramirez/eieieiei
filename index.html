@@ -1,0 +1,1680 @@
+<!DOCTYPE html>
+<html lang="th" class="h-full">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ครบรอบ 1 ปี 3 เดือน 💕</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            box-sizing: border-box;
+        }
+        
+        @import url('https://fonts.googleapis.com/css2?family=Sarabun:wght@300;400;600;700&display=swap');
+        
+        * {
+            font-family: 'Sarabun', sans-serif;
+        }
+        
+        .page {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            min-height: 100vh;
+            opacity: 0;
+            transform: translateX(30px);
+            transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+            pointer-events: none;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .page.active {
+            opacity: 1;
+            transform: translateX(0);
+            pointer-events: all;
+        }
+        
+        .page.slide-out-left {
+            transform: translateX(-30px);
+            opacity: 0;
+        }
+        
+        .page.slide-out-right {
+            transform: translateX(30px);
+            opacity: 0;
+        }
+        
+        .page.slide-in-from-left {
+            transform: translateX(-30px);
+            opacity: 0;
+        }
+        
+        .page.slide-in-from-right {
+            transform: translateX(30px);
+            opacity: 0;
+        }
+        
+        .gradient-bg-1 {
+            background: linear-gradient(135deg, #fdf2f8 0%, #fce7f3 25%, #f3e8ff 50%, #e0e7ff 75%, #f0f9ff 100%);
+        }
+        
+        .gradient-bg-2 {
+            background: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 25%, #bbf7d0 50%, #86efac 75%, #4ade80 100%);
+        }
+        
+        .gradient-bg-3 {
+            background: linear-gradient(135deg, #fef3c7 0%, #fde68a 25%, #fcd34d 50%, #f59e0b 75%, #d97706 100%);
+        }
+        
+        .gradient-bg-4 {
+            background: linear-gradient(135deg, #e0e7ff 0%, #c7d2fe 25%, #a5b4fc 50%, #818cf8 75%, #6366f1 100%);
+        }
+        
+        .floating {
+            animation: floating 3s ease-in-out infinite;
+        }
+        
+        @keyframes floating {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+        
+        .sparkle {
+            animation: sparkle 2s linear infinite;
+        }
+        
+        @keyframes sparkle {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.5; transform: scale(1.2); }
+        }
+        
+        .heart-beat {
+            animation: heartbeat 1.5s ease-in-out infinite;
+        }
+        
+        @keyframes heartbeat {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+        
+        .photo-placeholder {
+            background: linear-gradient(45deg, rgba(255,255,255,0.8), rgba(255,255,255,0.6));
+            border: 3px dashed #f9a8d4;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+        
+        .photo-placeholder:hover {
+            border-color: #ec4899;
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(236, 72, 153, 0.3);
+        }
+        
+        .celebration-text {
+            background: linear-gradient(45deg, #ff6b6b, #feca57, #48dbfb, #ff9ff3);
+            background-size: 400% 400%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: gradient 3s ease infinite;
+        }
+        
+        @keyframes gradient {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+        
+        .memory-card {
+            backdrop-filter: blur(15px);
+            background: rgba(255, 255, 255, 0.8);
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+        }
+        
+        .timeline-dot {
+            background: linear-gradient(45deg, #f472b6, #ec4899, #db2777);
+            box-shadow: 0 0 25px rgba(244, 114, 182, 0.6);
+            border: 3px solid rgba(255, 255, 255, 0.8);
+        }
+        
+        .nav-button {
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(10px);
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            transition: all 0.3s ease;
+        }
+        
+        .nav-button:hover {
+            background: rgba(255, 255, 255, 1);
+            transform: scale(1.05);
+        }
+        
+        .page-indicator {
+            background: rgba(255, 255, 255, 0.5);
+            transition: all 0.3s ease;
+        }
+        
+        .page-indicator.active {
+            background: rgba(236, 72, 153, 0.8);
+            transform: scale(1.2);
+        }
+        
+        .magic-sparkles {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            overflow: hidden;
+        }
+        
+        .sparkle-particle {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: radial-gradient(circle, #fff 0%, transparent 70%);
+            border-radius: 50%;
+            animation: sparkleFloat 4s linear infinite;
+            opacity: 0;
+        }
+        
+        @keyframes sparkleFloat {
+            0% {
+                opacity: 0;
+                transform: translateY(100vh) rotate(0deg) scale(0);
+            }
+            10% {
+                opacity: 1;
+                transform: translateY(90vh) rotate(36deg) scale(1);
+            }
+            90% {
+                opacity: 1;
+                transform: translateY(10vh) rotate(324deg) scale(1);
+            }
+            100% {
+                opacity: 0;
+                transform: translateY(0vh) rotate(360deg) scale(0);
+            }
+        }
+        
+        .confetti {
+            position: absolute;
+            width: 8px;
+            height: 8px;
+            animation: confettiFall 3s linear infinite;
+        }
+        
+        @keyframes confettiFall {
+            0% {
+                transform: translateY(-100vh) rotate(0deg);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(100vh) rotate(720deg);
+                opacity: 0;
+            }
+        }
+        
+        .bubble {
+            position: absolute;
+            border-radius: 50%;
+            background: radial-gradient(circle at 30% 30%, rgba(255,255,255,0.8), rgba(255,255,255,0.1));
+            animation: bubbleFloat 6s ease-in-out infinite;
+            opacity: 0.7;
+        }
+        
+        @keyframes bubbleFloat {
+            0%, 100% {
+                transform: translateY(0px) translateX(0px) scale(1);
+                opacity: 0.7;
+            }
+            25% {
+                transform: translateY(-20px) translateX(10px) scale(1.1);
+                opacity: 0.9;
+            }
+            50% {
+                transform: translateY(-40px) translateX(-5px) scale(0.9);
+                opacity: 0.5;
+            }
+            75% {
+                transform: translateY(-20px) translateX(-10px) scale(1.05);
+                opacity: 0.8;
+            }
+        }
+        
+        .page-transition-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05));
+            opacity: 0;
+            pointer-events: none;
+            z-index: 100;
+            transition: opacity 0.3s ease;
+        }
+        
+        .page-transition-overlay.active {
+            opacity: 1;
+        }
+        
+
+        
+        .floating-hearts {
+            position: absolute;
+            font-size: 20px;
+            animation: floatingHearts 8s linear infinite;
+            opacity: 0;
+        }
+        
+        @keyframes floatingHearts {
+            0% {
+                opacity: 0;
+                transform: translateY(100vh) translateX(0px) rotate(0deg);
+            }
+            10% {
+                opacity: 1;
+            }
+            90% {
+                opacity: 1;
+            }
+            100% {
+                opacity: 0;
+                transform: translateY(-100px) translateX(50px) rotate(360deg);
+            }
+        }
+        
+        .glow-effect {
+            box-shadow: 0 0 20px rgba(236, 72, 153, 0.3), 0 0 40px rgba(236, 72, 153, 0.2), 0 0 60px rgba(236, 72, 153, 0.1);
+            animation: glowPulse 2s ease-in-out infinite alternate;
+        }
+        
+        @keyframes glowPulse {
+            from {
+                box-shadow: 0 0 20px rgba(236, 72, 153, 0.3), 0 0 40px rgba(236, 72, 153, 0.2), 0 0 60px rgba(236, 72, 153, 0.1);
+            }
+            to {
+                box-shadow: 0 0 30px rgba(236, 72, 153, 0.5), 0 0 60px rgba(236, 72, 153, 0.3), 0 0 90px rgba(236, 72, 153, 0.2);
+            }
+        }
+        
+        .photo-frame {
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+        
+        .photo-frame:hover {
+            transform: translateY(-5px) scale(1.02);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+        }
+        
+        .video-overlay {
+            background: linear-gradient(45deg, rgba(0,0,0,0.3), rgba(0,0,0,0.1));
+        }
+        
+        /* Beautiful Animation Styles */
+        .shooting-star {
+            position: absolute;
+            width: 2px;
+            height: 2px;
+            background: linear-gradient(45deg, #fff, #ffd700);
+            border-radius: 50%;
+            animation: shootingStar 4s linear infinite;
+            opacity: 0;
+        }
+        
+        @keyframes shootingStar {
+            0% {
+                opacity: 0;
+                transform: translateX(-100px) translateY(0px) scale(0);
+            }
+            10% {
+                opacity: 1;
+                transform: translateX(-50px) translateY(25px) scale(1);
+            }
+            90% {
+                opacity: 1;
+                transform: translateX(100vw) translateY(200px) scale(1);
+            }
+            100% {
+                opacity: 0;
+                transform: translateX(calc(100vw + 100px)) translateY(250px) scale(0);
+            }
+        }
+        
+        .geometric-shape {
+            position: absolute;
+            width: 30px;
+            height: 30px;
+            animation: geometricFloat 6s ease-in-out infinite;
+        }
+        
+        .triangle {
+            width: 0;
+            height: 0;
+            border-left: 15px solid transparent;
+            border-right: 15px solid transparent;
+            border-bottom: 26px solid rgba(245, 158, 11, 0.6);
+        }
+        
+        .circle {
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(217, 119, 6, 0.8), rgba(217, 119, 6, 0.3));
+        }
+        
+        .square {
+            background: linear-gradient(45deg, rgba(245, 158, 11, 0.7), rgba(217, 119, 6, 0.5));
+            transform: rotate(45deg);
+        }
+        
+        .hexagon {
+            width: 30px;
+            height: 17px;
+            background: rgba(245, 158, 11, 0.6);
+            position: relative;
+        }
+        
+        .hexagon:before,
+        .hexagon:after {
+            content: "";
+            position: absolute;
+            width: 0;
+            border-left: 15px solid transparent;
+            border-right: 15px solid transparent;
+        }
+        
+        .hexagon:before {
+            bottom: 100%;
+            border-bottom: 8.5px solid rgba(245, 158, 11, 0.6);
+        }
+        
+        .hexagon:after {
+            top: 100%;
+            border-top: 8.5px solid rgba(245, 158, 11, 0.6);
+        }
+        
+        @keyframes geometricFloat {
+            0%, 100% {
+                transform: translateY(0px) rotate(0deg);
+                opacity: 0.6;
+            }
+            25% {
+                transform: translateY(-30px) rotate(90deg);
+                opacity: 1;
+            }
+            50% {
+                transform: translateY(-60px) rotate(180deg);
+                opacity: 0.8;
+            }
+            75% {
+                transform: translateY(-30px) rotate(270deg);
+                opacity: 1;
+            }
+        }
+        
+        .particle {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: radial-gradient(circle, #ffd700, transparent);
+            border-radius: 50%;
+            animation: particleRise 5s linear infinite;
+        }
+        
+        @keyframes particleRise {
+            0% {
+                opacity: 0;
+                transform: translateY(100vh) scale(0);
+            }
+            10% {
+                opacity: 1;
+                transform: translateY(90vh) scale(1);
+            }
+            90% {
+                opacity: 1;
+                transform: translateY(10vh) scale(1);
+            }
+            100% {
+                opacity: 0;
+                transform: translateY(0vh) scale(0);
+            }
+        }
+        
+        .wave-container {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 100px;
+            overflow: hidden;
+        }
+        
+        .wave {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 200%;
+            height: 100px;
+            background: linear-gradient(90deg, transparent, rgba(245, 158, 11, 0.1), transparent);
+            animation: waveMove 8s ease-in-out infinite;
+        }
+        
+        .wave1 {
+            animation-delay: 0s;
+        }
+        
+        .wave2 {
+            animation-delay: 2s;
+            opacity: 0.7;
+        }
+        
+        .wave3 {
+            animation-delay: 4s;
+            opacity: 0.5;
+        }
+        
+        @keyframes waveMove {
+            0%, 100% {
+                transform: translateX(-50%) translateY(0px);
+            }
+            50% {
+                transform: translateX(-50%) translateY(-20px);
+            }
+        }
+        
+        .animated-title {
+            animation: titleGlow 3s ease-in-out infinite alternate;
+        }
+        
+        @keyframes titleGlow {
+            from {
+                text-shadow: 0 0 20px rgba(245, 158, 11, 0.3);
+            }
+            to {
+                text-shadow: 0 0 30px rgba(245, 158, 11, 0.6), 0 0 40px rgba(217, 119, 6, 0.4);
+            }
+        }
+        
+        .rotating-ring {
+            position: absolute;
+            border-radius: 50%;
+            border: 2px solid transparent;
+            animation: rotateRing 10s linear infinite;
+        }
+        
+        .ring-outer {
+            width: 350px;
+            height: 350px;
+            top: 25px;
+            left: 25px;
+            border-image: linear-gradient(45deg, #f59e0b, #d97706, #f59e0b) 1;
+            animation-duration: 15s;
+        }
+        
+        .ring-middle {
+            width: 250px;
+            height: 250px;
+            top: 75px;
+            left: 75px;
+            border-image: linear-gradient(45deg, #fbbf24, #f59e0b, #fbbf24) 1;
+            animation-duration: 12s;
+            animation-direction: reverse;
+        }
+        
+        .ring-inner {
+            width: 150px;
+            height: 150px;
+            top: 125px;
+            left: 125px;
+            border-image: linear-gradient(45deg, #fcd34d, #fbbf24, #fcd34d) 1;
+            animation-duration: 8s;
+        }
+        
+        @keyframes rotateRing {
+            from {
+                transform: rotate(0deg);
+            }
+            to {
+                transform: rotate(360deg);
+            }
+        }
+        
+        .central-heart {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 10;
+        }
+        
+        .heart-pulse {
+            font-size: 4rem;
+            animation: heartPulse 2s ease-in-out infinite;
+        }
+        
+        @keyframes heartPulse {
+            0%, 100% {
+                transform: scale(1);
+                filter: drop-shadow(0 0 10px rgba(236, 72, 153, 0.5));
+            }
+            50% {
+                transform: scale(1.2);
+                filter: drop-shadow(0 0 20px rgba(236, 72, 153, 0.8));
+            }
+        }
+        
+        .orbit-element {
+            position: absolute;
+            font-size: 1.5rem;
+            animation: orbit 8s linear infinite;
+        }
+        
+        .orbit-1 {
+            top: 50px;
+            left: 200px;
+            animation-delay: 0s;
+        }
+        
+        .orbit-2 {
+            top: 100px;
+            left: 320px;
+            animation-delay: 1.3s;
+        }
+        
+        .orbit-3 {
+            top: 200px;
+            left: 350px;
+            animation-delay: 2.6s;
+        }
+        
+        .orbit-4 {
+            top: 300px;
+            left: 320px;
+            animation-delay: 4s;
+        }
+        
+        .orbit-5 {
+            top: 350px;
+            left: 200px;
+            animation-delay: 5.3s;
+        }
+        
+        .orbit-6 {
+            top: 320px;
+            left: 80px;
+            animation-delay: 6.6s;
+        }
+        
+        @keyframes orbit {
+            from {
+                transform: rotate(0deg) translateX(100px) rotate(0deg);
+            }
+            to {
+                transform: rotate(360deg) translateX(100px) rotate(-360deg);
+            }
+        }
+        
+        .animated-card {
+            position: relative;
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(15px);
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            border-radius: 20px;
+            padding: 2rem;
+            transition: all 0.3s ease;
+            overflow: hidden;
+            animation: cardFloat 4s ease-in-out infinite;
+        }
+        
+        .card-1 {
+            animation-delay: 0s;
+        }
+        
+        .card-2 {
+            animation-delay: 1.3s;
+        }
+        
+        .card-3 {
+            animation-delay: 2.6s;
+        }
+        
+        @keyframes cardFloat {
+            0%, 100% {
+                transform: translateY(0px);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+        
+        .card-glow {
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent, rgba(245, 158, 11, 0.1), transparent);
+            animation: cardGlow 3s linear infinite;
+            opacity: 0;
+        }
+        
+        @keyframes cardGlow {
+            0% {
+                transform: rotate(0deg);
+                opacity: 0;
+            }
+            50% {
+                opacity: 1;
+            }
+            100% {
+                transform: rotate(360deg);
+                opacity: 0;
+            }
+        }
+        
+        .animated-card:hover {
+            transform: translateY(-15px) scale(1.05);
+            box-shadow: 0 20px 40px rgba(245, 158, 11, 0.3);
+        }
+        
+        .floating-message {
+            animation: messageFloat 6s ease-in-out infinite;
+        }
+        
+        @keyframes messageFloat {
+            0%, 100% {
+                transform: translateY(0px);
+            }
+            33% {
+                transform: translateY(-15px);
+            }
+            66% {
+                transform: translateY(-5px);
+            }
+        }
+        
+        .message-bubble {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            border: 2px solid rgba(245, 158, 11, 0.3);
+            border-radius: 25px;
+            padding: 2rem;
+            box-shadow: 0 15px 35px rgba(245, 158, 11, 0.2);
+            position: relative;
+        }
+        
+        .message-bubble::before {
+            content: '';
+            position: absolute;
+            top: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 0;
+            height: 0;
+            border-left: 15px solid transparent;
+            border-right: 15px solid transparent;
+            border-bottom: 15px solid rgba(255, 255, 255, 0.95);
+        }
+        
+        /* Love Letter Styles */
+        .love-letter {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #f59e0b, #d97706);
+            color: white;
+            font-size: 2.5rem;
+            font-weight: bold;
+            border: 4px solid rgba(255, 255, 255, 0.8);
+            box-shadow: 0 8px 25px rgba(245, 158, 11, 0.4);
+            transition: all 0.3s ease;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .love-letter::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            transform: rotate(45deg);
+            transition: all 0.6s ease;
+            opacity: 0;
+        }
+        
+        .love-letter:hover {
+            transform: scale(1.1) rotate(5deg);
+            box-shadow: 0 12px 35px rgba(245, 158, 11, 0.6);
+            background: linear-gradient(135deg, #fbbf24, #f59e0b);
+        }
+        
+        .love-letter:hover::before {
+            opacity: 1;
+            animation: shimmer 0.6s ease-in-out;
+        }
+        
+        .love-letter:active {
+            transform: scale(0.95);
+        }
+        
+        @keyframes shimmer {
+            0% {
+                transform: translateX(-100%) translateY(-100%) rotate(45deg);
+            }
+            100% {
+                transform: translateX(100%) translateY(100%) rotate(45deg);
+            }
+        }
+        
+        .meaning-display {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(10px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+            opacity: 0;
+            transition: all 0.3s ease;
+        }
+        
+        .meaning-display.show {
+            opacity: 1;
+        }
+        
+        .meaning-display.hidden {
+            display: none;
+        }
+        
+        .meaning-card {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            border-radius: 30px;
+            padding: 3rem;
+            text-align: center;
+            border: 3px solid rgba(245, 158, 11, 0.3);
+            box-shadow: 0 20px 60px rgba(245, 158, 11, 0.3);
+            transform: scale(0.8);
+            transition: all 0.3s ease;
+            max-width: 500px;
+            margin: 2rem;
+        }
+        
+        .meaning-display.show .meaning-card {
+            transform: scale(1);
+        }
+        
+        .letter-sparkle {
+            animation: letterSparkle 2s ease-in-out infinite;
+        }
+        
+        @keyframes letterSparkle {
+            0%, 100% {
+                text-shadow: 0 0 10px rgba(245, 158, 11, 0.5);
+            }
+            50% {
+                text-shadow: 0 0 20px rgba(245, 158, 11, 0.8), 0 0 30px rgba(217, 119, 6, 0.6);
+            }
+        }
+        
+        @keyframes pulse {
+            0%, 100% {
+                transform: scale(1);
+                opacity: 0.7;
+            }
+            50% {
+                transform: scale(1.2);
+                opacity: 1;
+            }
+        }
+        
+
+    </style>
+</head>
+<body class="h-full overflow-hidden">
+    <!-- Hidden Music System (Auto-play only) -->
+    <div id="musicSystem" style="display: none;"></div>
+
+
+
+    <!-- Audio Player for MP3 files -->
+    <audio id="audioPlayer" style="display: none;"></audio>
+
+
+
+    <!-- Welcome Screen -->
+    <div id="welcomeScreen" class="fixed inset-0 z-[9999] flex items-center justify-center" style="background: linear-gradient(135deg, rgba(255, 182, 193, 0.95), rgba(255, 192, 203, 0.95), rgba(221, 160, 221, 0.95), rgba(173, 216, 230, 0.95)); backdrop-filter: blur(20px);">
+        <div class="text-center max-w-md mx-auto px-6">
+            <!-- Animated Hearts -->
+            <div class="mb-8 relative">
+                <div class="text-8xl mb-4 heart-beat">💕</div>
+                <div class="absolute -top-4 -left-4 text-4xl floating text-pink-400">✨</div>
+                <div class="absolute -top-2 -right-6 text-3xl floating text-pink-500" style="animation-delay: 0.5s;">🌸</div>
+                <div class="absolute -bottom-2 -left-2 text-3xl floating text-pink-300" style="animation-delay: 1s;">💖</div>
+                <div class="absolute -bottom-4 -right-4 text-4xl floating text-pink-400" style="animation-delay: 1.5s;">🦋</div>
+            </div>
+            
+            <!-- Welcome Text -->
+            <h1 class="text-4xl font-bold text-gray-700 mb-4 celebration-text">ครบรอบ 1 ปี 3 เดือน ของเรา 💕</h1>
+            <p class="text-lg text-gray-600 mb-8 leading-relaxed">
+                โลกแห่งความทรงจำพิเศษ<br>
+                ที่เต็มไปด้วยความรักและความสุข ✨
+            </p>
+            
+            <!-- Enter Button -->
+            <button onclick="enterSite()" class="group relative overflow-hidden bg-gradient-to-r from-pink-500 to-purple-600 hover:from-pink-600 hover:to-purple-700 text-white font-bold py-4 px-8 rounded-full text-xl transition-all duration-300 transform hover:scale-105 hover:shadow-2xl">
+                <span class="relative z-10 flex items-center justify-center">
+                    <span class="text-2xl group-hover:animate-bounce">💖</span>
+                    <span class="ml-2">เริ่ม</span>
+                </span>
+                
+                <!-- Button Glow Effect -->
+                <div class="absolute inset-0 bg-gradient-to-r from-pink-400 to-purple-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-full blur-xl"></div>
+                
+                <!-- Sparkle Effect -->
+                <div class="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    <div class="absolute top-1 left-4 text-yellow-300 text-xs animate-ping">✨</div>
+                    <div class="absolute top-2 right-6 text-yellow-200 text-xs animate-ping" style="animation-delay: 0.2s;">⭐</div>
+                    <div class="absolute bottom-2 left-8 text-yellow-300 text-xs animate-ping" style="animation-delay: 0.4s;">💫</div>
+                    <div class="absolute bottom-1 right-4 text-yellow-200 text-xs animate-ping" style="animation-delay: 0.6s;">✨</div>
+                </div>
+            </button>
+            
+            <!-- Floating Elements -->
+            <div class="absolute inset-0 pointer-events-none overflow-hidden">
+                <div class="absolute top-20 left-10 text-pink-300 text-xl floating">🌸</div>
+                <div class="absolute top-32 right-16 text-purple-300 text-lg floating" style="animation-delay: 1s;">💜</div>
+                <div class="absolute bottom-40 left-20 text-pink-400 text-xl floating" style="animation-delay: 2s;">🦋</div>
+                <div class="absolute bottom-32 right-12 text-purple-400 text-lg floating" style="animation-delay: 3s;">✨</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Page 1: Anniversary Counter -->
+    <div class="page active gradient-bg-1" id="page1">
+        <!-- Magic Sparkles -->
+        <div class="magic-sparkles" id="sparkles1"></div>
+        
+        <!-- Floating Hearts -->
+        <div class="absolute inset-0 overflow-hidden pointer-events-none z-0">
+            <div class="absolute top-20 left-10 text-pink-400 text-2xl floating">💕</div>
+            <div class="absolute top-32 right-20 text-pink-500 text-3xl floating" style="animation-delay: 0.5s;">🌸</div>
+            <div class="absolute bottom-40 left-20 text-pink-300 text-2xl floating" style="animation-delay: 1s;">💖</div>
+            <div class="absolute top-40 right-10 text-pink-400 text-xl floating" style="animation-delay: 1.5s;">🦋</div>
+            <div class="absolute bottom-60 right-32 text-pink-500 text-2xl floating" style="animation-delay: 2s;">💗</div>
+            
+            <!-- Floating Hearts Animation -->
+            <div class="floating-hearts" style="left: 10%; animation-delay: 0s;">💕</div>
+            <div class="floating-hearts" style="left: 30%; animation-delay: 2s;">💖</div>
+            <div class="floating-hearts" style="left: 50%; animation-delay: 4s;">💗</div>
+            <div class="floating-hearts" style="left: 70%; animation-delay: 6s;">💝</div>
+            <div class="floating-hearts" style="left: 90%; animation-delay: 8s;">💞</div>
+            
+            <!-- Bubbles -->
+            <div class="bubble" style="width: 20px; height: 20px; left: 15%; top: 60%; animation-delay: 0s;"></div>
+            <div class="bubble" style="width: 15px; height: 15px; left: 85%; top: 40%; animation-delay: 1s;"></div>
+            <div class="bubble" style="width: 25px; height: 25px; left: 25%; top: 80%; animation-delay: 2s;"></div>
+            <div class="bubble" style="width: 18px; height: 18px; left: 75%; top: 70%; animation-delay: 3s;"></div>
+        </div>
+        
+        <div class="flex-1 flex items-center justify-center px-4 py-12 relative z-10">
+            <div class="text-center max-w-4xl mx-auto">
+                <h1 class="text-6xl md:text-8xl font-bold mb-6 celebration-text">ครบรอบ</h1>
+                <div class="text-5xl md:text-7xl font-bold text-gray-700 mb-8 heart-beat">1 ปี 3 เดือน</div>
+                
+                <div class="flex justify-center space-x-4 mb-12">
+                    <span class="text-4xl sparkle">✨</span>
+                    <span class="text-5xl sparkle" style="animation-delay: 0.3s;">🎉</span>
+                    <span class="text-4xl sparkle" style="animation-delay: 0.6s;">✨</span>
+                </div>
+                
+                <div class="memory-card rounded-3xl p-8 mb-12 glow-effect">
+                    <div class="text-center mb-6">
+                        <p class="text-lg text-gray-600">ตั้งแต่วันที่ 8 กรกฎาคม พ.ศ. 2567</p>
+                    </div>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 text-center">
+                        <div class="text-gray-700">
+                            <div class="text-4xl font-bold sparkle" id="years">0</div>
+                            <div class="text-lg font-medium">ปี 🌸</div>
+                        </div>
+                        <div class="text-gray-700">
+                            <div class="text-4xl font-bold sparkle" id="months">0</div>
+                            <div class="text-lg font-medium">เดือน 💕</div>
+                        </div>
+                        <div class="text-gray-700">
+                            <div class="text-4xl font-bold heart-beat" id="days">0</div>
+                            <div class="text-lg font-medium">วัน 💖</div>
+                        </div>
+                    </div>
+                    <div class="mt-6 text-center">
+                        <div class="text-lg text-gray-600">
+                            รวมทั้งหมด <span id="totalDays" class="font-bold text-pink-600">0</span> วัน
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Page 2: Photo Gallery -->
+    <div class="page gradient-bg-2" id="page2">
+        <!-- Magic Sparkles -->
+        <div class="magic-sparkles" id="sparkles2"></div>
+        
+        <div class="absolute inset-0 overflow-hidden pointer-events-none z-0">
+            <div class="absolute top-20 left-10 text-green-400 text-2xl floating">🌿</div>
+            <div class="absolute top-32 right-20 text-green-500 text-3xl floating" style="animation-delay: 0.5s;">🌺</div>
+            <div class="absolute bottom-40 left-20 text-green-300 text-2xl floating" style="animation-delay: 1s;">🦋</div>
+            <div class="absolute top-40 right-10 text-green-400 text-xl floating" style="animation-delay: 1.5s;">🌸</div>
+            
+            <!-- Confetti -->
+            <div class="confetti" style="left: 20%; background: #ff6b6b; animation-delay: 0s;"></div>
+            <div class="confetti" style="left: 40%; background: #4ecdc4; animation-delay: 0.5s;"></div>
+            <div class="confetti" style="left: 60%; background: #45b7d1; animation-delay: 1s;"></div>
+            <div class="confetti" style="left: 80%; background: #f9ca24; animation-delay: 1.5s;"></div>
+            
+            <!-- More Bubbles -->
+            <div class="bubble" style="width: 30px; height: 30px; left: 10%; top: 30%; animation-delay: 0s; background: radial-gradient(circle at 30% 30%, rgba(76, 175, 80, 0.8), rgba(76, 175, 80, 0.1));"></div>
+            <div class="bubble" style="width: 22px; height: 22px; left: 90%; top: 60%; animation-delay: 2s; background: radial-gradient(circle at 30% 30%, rgba(139, 195, 74, 0.8), rgba(139, 195, 74, 0.1));"></div>
+        </div>
+        
+        <div class="flex-1 flex items-center justify-center px-4 py-12 relative z-10">
+            <div class="max-w-6xl mx-auto">
+                <h2 class="text-4xl md:text-5xl font-bold text-center text-gray-700 mb-12">
+                    ความทรงจำของเรา ✨
+                </h2>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- รูปที่ 1 -->
+                    <div class="photo-frame rounded-2xl h-64 overflow-hidden cursor-pointer group">
+                        <img src="./IMG_20240312_225822.jpg" alt="ความทรงจำพิเศษ - 12 มีนาคม 2567" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300" onerror="this.style.display='none'; this.parentElement.innerHTML='<div class=\'h-full flex items-center justify-center bg-gradient-to-br from-pink-100 to-pink-200\'><div class=\'text-center text-pink-600\'><div class=\'text-4xl mb-2\'>📸</div><div class=\'text-lg font-medium\'>รูปที่ 1</div><div class=\'text-sm opacity-70\'>12 มีนาคม 2567</div></div></div>';">
+                    </div>
+                    
+                    <!-- รูปที่ 2 -->
+                    <div class="photo-frame rounded-2xl h-64 overflow-hidden cursor-pointer group">
+                        <img src="./IMG_20240829_212239.jpg" alt="ช่วงเวลาแห่งความสุข - 29 สิงหาคม 2567" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300" onerror="this.style.display='none'; this.parentElement.innerHTML='<div class=\'h-full flex items-center justify-center bg-gradient-to-br from-green-100 to-green-200\'><div class=\'text-center text-green-600\'><div class=\'text-4xl mb-2\'>💕</div><div class=\'text-lg font-medium\'>รูปที่ 2</div><div class=\'text-sm opacity-70\'>29 สิงหาคม 2567</div></div></div>';">
+                    </div>
+                    
+                    <!-- รูปที่ 3 -->
+                    <div class="photo-frame rounded-2xl h-64 overflow-hidden cursor-pointer group">
+                        <img src="./IMG_20250524_112356.jpg" alt="วันพิเศษของเรา - 24 พฤษภาคม 2568" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300" onerror="this.style.display='none'; this.parentElement.innerHTML='<div class=\'h-full flex items-center justify-center bg-gradient-to-br from-blue-100 to-blue-200\'><div class=\'text-center text-blue-600\'><div class=\'text-4xl mb-2\'>🎉</div><div class=\'text-lg font-medium\'>รูปที่ 3</div><div class=\'text-sm opacity-70\'>24 พฤษภาคม 2568</div></div></div>';">
+                    </div>
+                    
+                    <!-- รูปที่ 4 -->
+                    <div class="photo-frame rounded-2xl h-64 overflow-hidden cursor-pointer group">
+                        <img src="IMG_1266.jpeg" alt="ความทรงจำดีๆ" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300" onerror="this.style.display='none'; this.parentElement.innerHTML='<div class=\'h-full flex items-center justify-center bg-gradient-to-br from-purple-100 to-purple-200\'><div class=\'text-center text-purple-600\'><div class=\'text-4xl mb-2\'>🌟</div><div class=\'text-lg font-medium\'>รูปที่ 4</div><div class=\'text-sm opacity-70\'>ช่วงเวลาพิเศษ</div></div></div>';">
+                    </div>
+                    
+                    <!-- รูปที่ 5 -->
+                    <div class="photo-frame rounded-2xl h-64 overflow-hidden cursor-pointer group">
+                        <img src="./IMG_20250130_012947_Original.jpg" alt="ความสุขของเรา - 30 มกราคม 2568" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300" onerror="this.style.display='none'; this.parentElement.innerHTML='<div class=\'h-full flex items-center justify-center bg-gradient-to-br from-rose-100 to-rose-200\'><div class=\'text-center text-rose-600\'><div class=\'text-4xl mb-2\'>💖</div><div class=\'text-lg font-medium\'>รูปที่ 5</div><div class=\'text-sm opacity-70\'>30 มกราคม 2568</div></div></div>';">
+                    </div>
+                    
+                    <!-- วิดีโอ -->
+                    <div class="photo-frame rounded-2xl h-64 overflow-hidden cursor-pointer group relative" onclick="playVideo()">
+                        <video id="galleryVideo" class="w-full h-full object-cover" muted autoplay loop preload="metadata" poster="">
+                            <source src="ecbccfa51bfe467e83a4c7c54b921481.mov" type="video/quicktime">
+                            <source src="ecbccfa51bfe467e83a4c7c54b921481.mp4" type="video/mp4">
+                            <!-- Fallback content -->
+                            <div class="h-full flex items-center justify-center bg-gradient-to-br from-yellow-100 to-yellow-200">
+                                <div class="text-center text-yellow-600">
+                                    <div class="text-4xl mb-2 animate-bounce">🎬</div>
+                                    <div class="text-lg font-medium">วิดีโอพิเศษ</div>
+                                    <div class="text-sm opacity-70 mb-3">ความทรงจำเคลื่อนไหว</div>
+                                    <div class="bg-yellow-500 hover:bg-yellow-600 text-white px-4 py-2 rounded-full text-sm transition-colors">
+                                        ▶️ เล่นวิดีโอ
+                                    </div>
+                                </div>
+                            </div>
+                        </video>
+                        <div class="absolute top-2 right-2 bg-black bg-opacity-50 text-white px-2 py-1 rounded text-xs">
+                            📹 เล่นอัตโนมัติ
+                        </div>
+                        <div class="absolute inset-0 video-overlay opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center bg-black bg-opacity-30">
+                            <div class="text-white text-4xl">🔍 ดูแบบเต็มจอ</div>
+                        </div>
+                        <!-- Fullscreen indicator -->
+                        <div class="absolute bottom-2 right-2 bg-black bg-opacity-60 text-white px-2 py-1 rounded text-xs opacity-0 group-hover:opacity-100 transition-opacity">
+                            คลิกเพื่อดูแบบเต็มจอ
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Page 3: Beautiful Animation -->
+    <div class="page gradient-bg-3" id="page3">
+        <!-- Magic Sparkles -->
+        <div class="magic-sparkles" id="sparkles3"></div>
+        
+        <!-- Animated Background Elements -->
+        <div class="absolute inset-0 overflow-hidden pointer-events-none z-0">
+            <!-- Floating Stars -->
+            <div class="absolute top-20 left-10 text-yellow-400 text-2xl floating">⭐</div>
+            <div class="absolute top-32 right-20 text-orange-500 text-3xl floating" style="animation-delay: 0.5s;">🌟</div>
+            <div class="absolute bottom-40 left-20 text-yellow-300 text-2xl floating" style="animation-delay: 1s;">✨</div>
+            <div class="absolute top-40 right-10 text-orange-400 text-xl floating" style="animation-delay: 1.5s;">💫</div>
+            
+            <!-- Animated Shooting Stars -->
+            <div class="shooting-star" style="top: 20%; animation-delay: 0s;"></div>
+            <div class="shooting-star" style="top: 40%; animation-delay: 3s;"></div>
+            <div class="shooting-star" style="top: 60%; animation-delay: 6s;"></div>
+            <div class="shooting-star" style="top: 80%; animation-delay: 9s;"></div>
+            
+            <!-- Floating Geometric Shapes -->
+            <div class="geometric-shape triangle" style="left: 15%; top: 25%; animation-delay: 0s;"></div>
+            <div class="geometric-shape circle" style="left: 85%; top: 35%; animation-delay: 1s;"></div>
+            <div class="geometric-shape square" style="left: 10%; top: 70%; animation-delay: 2s;"></div>
+            <div class="geometric-shape hexagon" style="left: 90%; top: 75%; animation-delay: 3s;"></div>
+            
+            <!-- Particle System -->
+            <div class="particle-system">
+                <div class="particle" style="left: 20%; animation-delay: 0s;"></div>
+                <div class="particle" style="left: 40%; animation-delay: 0.5s;"></div>
+                <div class="particle" style="left: 60%; animation-delay: 1s;"></div>
+                <div class="particle" style="left: 80%; animation-delay: 1.5s;"></div>
+                <div class="particle" style="left: 30%; animation-delay: 2s;"></div>
+                <div class="particle" style="left: 70%; animation-delay: 2.5s;"></div>
+            </div>
+            
+            <!-- Animated Waves -->
+            <div class="wave-container">
+                <div class="wave wave1"></div>
+                <div class="wave wave2"></div>
+                <div class="wave wave3"></div>
+            </div>
+        </div>
+        
+        <div class="flex-1 flex items-center justify-center px-4 py-12 relative z-10">
+            <div class="max-w-6xl mx-auto text-center">
+                <h2 class="text-4xl md:text-6xl font-bold text-gray-700 mb-16 animated-title">
+                    ความงดงามแห่งความรัก ✨
+                </h2>
+                
+                <!-- Central Animation Display -->
+                <div class="relative mx-auto mb-16" style="width: 400px; height: 400px;">
+                    <!-- Rotating Rings -->
+                    <div class="rotating-ring ring-outer"></div>
+                    <div class="rotating-ring ring-middle"></div>
+                    <div class="rotating-ring ring-inner"></div>
+                    
+                    <!-- Central Heart -->
+                    <div class="central-heart">
+                        <div class="heart-pulse">💕</div>
+                    </div>
+                    
+                    <!-- Orbiting Elements -->
+                    <div class="orbit-element orbit-1">🌟</div>
+                    <div class="orbit-element orbit-2">✨</div>
+                    <div class="orbit-element orbit-3">💖</div>
+                    <div class="orbit-element orbit-4">🦋</div>
+                    <div class="orbit-element orbit-5">🌸</div>
+                    <div class="orbit-element orbit-6">💫</div>
+                </div>
+                
+                <!-- Interactive I LOVE YOU Section -->
+                <div class="mb-16">
+                    <!-- คำแนะนำ -->
+                    <div class="mb-6">
+                        <p class="text-lg text-gray-600 font-medium mb-2">✨ กดที่ตัวอักษรแต่ละตัวเพื่อดูความหมายพิเศษ ✨</p>
+                        <div class="flex justify-center items-center">
+                            <div class="w-8 h-1 bg-gradient-to-r from-orange-400 to-yellow-400 rounded-full"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="flex flex-wrap justify-center items-center gap-4 mb-8">
+                        <button class="love-letter" data-letter="I" data-meaning="Imagine — ฉันจินตนาการถึงเธอทุกวัน">I</button>
+                        
+                        <!-- ช่องว่างระหว่าง I กับ LOVE -->
+                        <div class="mx-6"></div>
+                        
+                        <button class="love-letter" data-letter="L" data-meaning="Life — ชีวิตของฉันมีค่าเพราะมีเธอ">L</button>
+                        <button class="love-letter" data-letter="O" data-meaning="Only — เธอคือเพียงคนเดียวในใจ">O</button>
+                        <button class="love-letter" data-letter="V" data-meaning="Value — ฉันเห็นคุณค่าในทุกสิ่งที่เธอเป็น">V</button>
+                        <button class="love-letter" data-letter="E" data-meaning="Eternal — ความรักของฉันจะไม่มีวันสิ้นสุด">E</button>
+                        <div class="text-4xl mx-4">💕</div>
+                        <button class="love-letter" data-letter="Y" data-meaning="You — เธอคือเหตุผลของทุกอย่าง">Y</button>
+                        <button class="love-letter" data-letter="O2" data-meaning="Oasis — เธอคือความสงบในใจกลางทะเลทรายชีวิต">O</button>
+                        <button class="love-letter" data-letter="U" data-meaning="Universe — เธอคือจักรวาลทั้งใบของฉัน">U</button>
+                    </div>
+                    
+                    <!-- Meaning Display -->
+                    <div id="meaningDisplay" class="meaning-display hidden">
+                        <div class="meaning-card">
+                            <div class="text-6xl mb-4" id="displayLetter">I</div>
+                            <div class="text-xl text-gray-700 font-medium" id="displayMeaning">Imagine — ฉันจินตนาการถึงเธอทุกวัน</div>
+                            <button onclick="hideMeaning()" class="mt-4 px-6 py-2 bg-orange-500 text-white rounded-full hover:bg-orange-600 transition-colors">ปิด ✨</button>
+                        </div>
+                    </div>
+                </div>
+
+
+                
+                <!-- Floating Message -->
+                <div class="floating-message">
+                    <div class="message-bubble">
+                        <p class="text-lg text-gray-700 font-medium">
+                            "ความรักของเราเหมือนงานศิลปะที่สวยงาม<br>
+                            เต็มไปด้วยสีสันและความหมายที่ลึกซึ้ง" 🎨💕
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Page 4: Message -->
+    <div class="page gradient-bg-4" id="page4">
+        <!-- Magic Sparkles -->
+        <div class="magic-sparkles" id="sparkles4"></div>
+        
+        <div class="absolute inset-0 overflow-hidden pointer-events-none z-0">
+            <div class="absolute top-20 left-10 text-blue-400 text-2xl floating">💙</div>
+            <div class="absolute top-32 right-20 text-indigo-500 text-3xl floating" style="animation-delay: 0.5s;">💜</div>
+            <div class="absolute bottom-40 left-20 text-blue-300 text-2xl floating" style="animation-delay: 1s;">💎</div>
+            <div class="absolute top-40 right-10 text-indigo-400 text-xl floating" style="animation-delay: 1.5s;">🌙</div>
+            
+            <!-- Blue Hearts -->
+            <div class="floating-hearts" style="left: 25%; animation-delay: 0.5s; color: #3b82f6;">💙</div>
+            <div class="floating-hearts" style="left: 45%; animation-delay: 2.5s; color: #6366f1;">💜</div>
+            <div class="floating-hearts" style="left: 65%; animation-delay: 4.5s; color: #8b5cf6;">💎</div>
+            <div class="floating-hearts" style="left: 85%; animation-delay: 6.5s; color: #3b82f6;">🌙</div>
+            
+            <!-- Blue Bubbles -->
+            <div class="bubble" style="width: 26px; height: 26px; left: 12%; top: 70%; animation-delay: 0.5s; background: radial-gradient(circle at 30% 30%, rgba(59, 130, 246, 0.8), rgba(59, 130, 246, 0.1));"></div>
+            <div class="bubble" style="width: 32px; height: 32px; left: 88%; top: 25%; animation-delay: 2.5s; background: radial-gradient(circle at 30% 30%, rgba(99, 102, 241, 0.8), rgba(99, 102, 241, 0.1));"></div>
+        </div>
+        
+        <div class="flex-1 flex items-center justify-center px-4 py-12 relative z-10">
+            <div class="max-w-4xl mx-auto text-center">
+                <div class="memory-card rounded-3xl p-12">
+                    <h2 class="text-3xl md:text-4xl font-bold text-gray-700 mb-6">
+                        ข้อความพิเศษ 💌
+                    </h2>
+                    
+                    <!-- รูปพิเศษ -->
+                    <div class="mb-8">
+                        <div class="photo-frame rounded-2xl overflow-hidden mx-auto" style="width: 100%; max-width: 640px; aspect-ratio: 16/9;">
+                            <img src="uahh.png" alt="รูปพิเศษของเรา" class="w-full h-full object-cover hover:scale-105 transition-transform duration-300" onerror="this.style.display='none'; this.parentElement.innerHTML='<div class=\'h-full flex items-center justify-center bg-gradient-to-br from-indigo-100 to-purple-200\'><div class=\'text-center text-indigo-600\'><div class=\'text-4xl mb-2\'>💜</div><div class=\'text-lg font-medium\'>รูปพิเศษ</div><div class=\'text-sm opacity-70\'>uahh.png</div></div></div>';">
+                        </div>
+                    </div>
+                    
+                    <div class="text-xl text-gray-600 leading-relaxed mb-8">
+                        "1 ปี 3 เดือนที่ผ่านมา เต็มไปด้วยความสุข ความทรงจำดีๆ และความรักที่งดงาม<br>
+                        ขอบคุณสำหรับทุกช่วงเวลาที่เราได้ใช้ร่วมกัน 💕<br>
+                        และขอให้ความรักของเราดำเนินต่อไปอย่างมีความสุขตลอดไป ✨"
+                    </div>
+                    <div class="text-4xl">💕 🎉 💖 🌟 💗</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Page Transition Overlay -->
+    <div class="page-transition-overlay" id="transitionOverlay"></div>
+
+
+
+    <!-- Arrow Navigation -->
+    <div class="fixed left-4 top-1/2 transform -translate-y-1/2 z-50">
+        <button onclick="previousPage()" class="nav-button rounded-full p-4 text-gray-600 hover:text-gray-800">
+            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+            </svg>
+        </button>
+    </div>
+    
+    <div class="fixed right-4 top-1/2 transform -translate-y-1/2 z-50">
+        <button onclick="nextPage()" class="nav-button rounded-full p-4 text-gray-600 hover:text-gray-800">
+            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+            </svg>
+        </button>
+    </div>
+
+    <script>
+        let currentPage = 1;
+        const totalPages = 4;
+        let musicInitialized = false;
+
+        function showPage(pageNumber, direction = 'next') {
+            const overlay = document.getElementById('transitionOverlay');
+            const currentPageEl = document.getElementById(`page${currentPage}`);
+            const nextPageEl = document.getElementById(`page${pageNumber}`);
+            
+            // Show subtle transition overlay
+            overlay.classList.add('active');
+            
+            // Add slide out animation to current page
+            if (direction === 'next') {
+                currentPageEl.classList.add('slide-out-left');
+                nextPageEl.classList.add('slide-in-from-right');
+            } else {
+                currentPageEl.classList.add('slide-out-right');
+                nextPageEl.classList.add('slide-in-from-left');
+            }
+            
+            setTimeout(() => {
+                // Hide all pages and reset classes
+                document.querySelectorAll('.page').forEach(page => {
+                    page.classList.remove('active', 'slide-out-left', 'slide-out-right', 'slide-in-from-left', 'slide-in-from-right');
+                });
+                
+                // Show new page
+                nextPageEl.classList.add('active');
+                
+                currentPage = pageNumber;
+                
+                // Create sparkles for new page
+                createSparkles(`sparkles${pageNumber}`);
+                
+                // Auto-play video when entering page 2 (gallery page)
+                if (pageNumber === 2) {
+                    setTimeout(() => {
+                        const galleryVideo = document.getElementById('galleryVideo');
+                        if (galleryVideo) {
+                            galleryVideo.play().catch(e => {
+                                console.log('🎬 วิดีโอเล่นอัตโนมัติ (ไม่มีเสียง)');
+                            });
+                        }
+                    }, 500);
+                }
+            }, 400);
+            
+            setTimeout(() => {
+                // Hide transition effects
+                overlay.classList.remove('active');
+            }, 700);
+        }
+
+        function nextPage() {
+            if (currentPage < totalPages) {
+                showPage(currentPage + 1, 'next');
+            } else {
+                showPage(1, 'next'); // Loop back to first page
+            }
+        }
+
+        function previousPage() {
+            if (currentPage > 1) {
+                showPage(currentPage - 1, 'prev');
+            } else {
+                showPage(totalPages, 'prev'); // Loop to last page
+            }
+        }
+
+
+
+        // Audio File Music System
+        class MusicSystem {
+            constructor() {
+                this.audio = null;
+                this.isPlayerReady = false;
+                this.volume = 0.15; // 15% volume for background music
+                this.autoStarted = false;
+                this.audioFile = 'fellow fellow - Proud [OFFICIAL MV]'; // ชื่อไฟล์เพลง
+                
+                this.initializeAudioPlayer();
+            }
+
+            initializeAudioPlayer() {
+                this.audio = document.getElementById('audioPlayer');
+                
+                // Try different common audio file extensions
+                const extensions = ['.mp3', '.wav', '.m4a', '.ogg'];
+                let currentExtension = 0;
+                
+                const tryLoadAudio = () => {
+                    if (currentExtension >= extensions.length) {
+                        console.error('🎵 ไม่สามารถโหลดไฟล์เพลงได้');
+                        return;
+                    }
+                    
+                    const audioSrc = this.audioFile + extensions[currentExtension];
+                    this.audio.src = audioSrc;
+                    
+                    this.audio.addEventListener('canplaythrough', () => {
+                        this.isPlayerReady = true;
+                        this.audio.volume = this.volume;
+                        this.audio.loop = true;
+                        console.log(`🎵 เพลงพื้นหลังพร้อมใช้งาน: ${audioSrc}`);
+                    }, { once: true });
+                    
+                    this.audio.addEventListener('error', () => {
+                        console.log(`🎵 ไม่พบไฟล์: ${audioSrc}`);
+                        currentExtension++;
+                        tryLoadAudio();
+                    }, { once: true });
+                    
+                    this.audio.load();
+                };
+                
+                // Event listeners
+                this.audio.addEventListener('play', () => {
+                    console.log('🎵 เพลงพื้นหลังกำลังเล่น: fellow fellow - Proud');
+                });
+                
+                this.audio.addEventListener('ended', () => {
+                    // Loop the song
+                    this.audio.currentTime = 0;
+                    this.audio.play();
+                });
+                
+                this.audio.addEventListener('error', (e) => {
+                    console.error('🎵 Audio Error:', e);
+                });
+                
+                // Start loading
+                tryLoadAudio();
+            }
+
+            // Start playing when user enters the site
+            startBackgroundMusic() {
+                if (this.isPlayerReady && !this.autoStarted) {
+                    const playPromise = this.audio.play();
+                    
+                    if (playPromise !== undefined) {
+                        playPromise.then(() => {
+                            this.autoStarted = true;
+                            console.log('🎵 เริ่มเล่นเพลงพื้นหลัง: fellow fellow - Proud');
+                        }).catch((error) => {
+                            console.log('🎵 ไม่สามารถเล่นเพลงอัตโนมัติได้:', error);
+                            // Try again with user interaction
+                            document.addEventListener('click', () => {
+                                if (!this.autoStarted) {
+                                    this.audio.play().then(() => {
+                                        this.autoStarted = true;
+                                        console.log('🎵 เริ่มเล่นเพลงพื้นหลังหลังจากคลิก');
+                                    });
+                                }
+                            }, { once: true });
+                        });
+                    }
+                } else if (!this.isPlayerReady) {
+                    // Try again after a delay if player isn't ready
+                    setTimeout(() => {
+                        this.startBackgroundMusic();
+                    }, 1000);
+                }
+            }
+
+            // Control methods (for future use)
+            pause() {
+                if (this.audio) {
+                    this.audio.pause();
+                }
+            }
+
+            resume() {
+                if (this.audio && this.autoStarted) {
+                    this.audio.play();
+                }
+            }
+
+            setVolume(volume) {
+                this.volume = volume;
+                if (this.audio) {
+                    this.audio.volume = volume;
+                }
+            }
+        }
+
+        // Initialize Music System
+        let musicSystem;
+        
+        function initializeMusic() {
+            musicSystem = new MusicSystem();
+            console.log('🎵 ระบบเพลงขั้นสูงพร้อมใช้งาน!');
+        }
+
+        // Keyboard navigation
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'ArrowRight') {
+                nextPage();
+            } else if (e.key === 'ArrowLeft') {
+                previousPage();
+            }
+        });
+
+        // Create sparkles function
+        function createSparkles(containerId) {
+            const container = document.getElementById(containerId);
+            if (!container) return;
+            
+            // Clear existing sparkles
+            container.innerHTML = '';
+            
+            // Create new sparkles
+            for (let i = 0; i < 15; i++) {
+                const sparkle = document.createElement('div');
+                sparkle.className = 'sparkle-particle';
+                sparkle.style.left = Math.random() * 100 + '%';
+                sparkle.style.animationDelay = Math.random() * 4 + 's';
+                sparkle.style.animationDuration = (3 + Math.random() * 2) + 's';
+                container.appendChild(sparkle);
+            }
+        }
+        
+
+
+
+
+        // Enter Site Function
+        function enterSite() {
+            const welcomeScreen = document.getElementById('welcomeScreen');
+            
+            // Initialize music when user clicks enter
+            initializeMusic();
+            
+            // Add exit animation
+            welcomeScreen.style.transform = 'scale(1.1)';
+            welcomeScreen.style.opacity = '0';
+            welcomeScreen.style.transition = 'all 0.8s cubic-bezier(0.4, 0, 0.2, 1)';
+            
+            setTimeout(() => {
+                welcomeScreen.style.display = 'none';
+                // Start sparkles for first page
+                createSparkles('sparkles1');
+                
+                // Start background music after a short delay
+                setTimeout(() => {
+                    if (musicSystem && musicSystem.isPlayerReady) {
+                        musicSystem.startBackgroundMusic();
+                    } else {
+                        // Try again after a bit more time if player isn't ready
+                        setTimeout(() => {
+                            if (musicSystem) {
+                                musicSystem.startBackgroundMusic();
+                            }
+                        }, 2000);
+                    }
+                }, 1000);
+            }, 800);
+        }
+
+        // Initialize countdown
+        document.addEventListener('DOMContentLoaded', function() {
+            const startDate = new Date('2024-07-08T00:00:00+07:00');
+            
+            function updateCountdown() {
+                const now = new Date();
+                
+                let years = now.getFullYear() - startDate.getFullYear();
+                let months = now.getMonth() - startDate.getMonth();
+                let days = now.getDate() - startDate.getDate();
+                
+                if (days < 0) {
+                    months--;
+                    const lastMonth = new Date(now.getFullYear(), now.getMonth(), 0);
+                    days += lastMonth.getDate();
+                }
+                
+                if (months < 0) {
+                    years--;
+                    months += 12;
+                }
+                
+                const totalDays = Math.floor((now - startDate) / (1000 * 60 * 60 * 24));
+                
+                document.getElementById('years').textContent = years;
+                document.getElementById('months').textContent = months;
+                document.getElementById('days').textContent = days;
+                document.getElementById('totalDays').textContent = totalDays.toLocaleString();
+            }
+            
+            updateCountdown();
+            setInterval(updateCountdown, 3600000);
+            
+            // Don't initialize sparkles immediately - wait for user to enter
+            // Music will be initialized when user clicks enter button
+            
+            // Add click effects to photo placeholders
+            const photoPlaceholders = document.querySelectorAll('.photo-placeholder');
+            photoPlaceholders.forEach(placeholder => {
+                placeholder.addEventListener('click', function() {
+                    this.style.transform = 'scale(0.95)';
+                    setTimeout(() => {
+                        this.style.transform = 'scale(1)';
+                    }, 150);
+                    
+                    // Add sparkle effect on click
+                    const sparkleEffect = document.createElement('div');
+                    sparkleEffect.innerHTML = '✨';
+                    sparkleEffect.style.position = 'absolute';
+                    sparkleEffect.style.left = '50%';
+                    sparkleEffect.style.top = '50%';
+                    sparkleEffect.style.transform = 'translate(-50%, -50%)';
+                    sparkleEffect.style.fontSize = '2rem';
+                    sparkleEffect.style.pointerEvents = 'none';
+                    sparkleEffect.style.animation = 'sparkle 1s ease-out forwards';
+                    this.style.position = 'relative';
+                    this.appendChild(sparkleEffect);
+                    
+                    setTimeout(() => {
+                        sparkleEffect.remove();
+                    }, 1000);
+                });
+            });
+            
+            // Add love letter click handlers
+            const loveLetters = document.querySelectorAll('.love-letter');
+            loveLetters.forEach(letter => {
+                letter.addEventListener('click', function() {
+                    const letterText = this.getAttribute('data-letter');
+                    const meaning = this.getAttribute('data-meaning');
+                    showMeaning(letterText, meaning);
+                });
+            });
+        });
+        
+        function showMeaning(letter, meaning) {
+            const display = document.getElementById('meaningDisplay');
+            const displayLetter = document.getElementById('displayLetter');
+            const displayMeaning = document.getElementById('displayMeaning');
+            
+            displayLetter.textContent = letter.replace('2', '');
+            displayLetter.className = 'text-6xl mb-4 letter-sparkle';
+            displayMeaning.textContent = meaning;
+            
+            display.classList.remove('hidden');
+            setTimeout(() => {
+                display.classList.add('show');
+            }, 10);
+        }
+        
+        function hideMeaning() {
+            const display = document.getElementById('meaningDisplay');
+            display.classList.remove('show');
+            setTimeout(() => {
+                display.classList.add('hidden');
+            }, 300);
+        }
+        
+        function playVideo() {
+            // Create video modal
+            const modal = document.createElement('div');
+            modal.className = 'fixed inset-0 bg-black bg-opacity-90 flex items-center justify-center z-[9999]';
+            modal.innerHTML = `
+                <div class="relative max-w-5xl mx-auto p-4 w-full">
+                    <button onclick="closeVideoModal(this)" class="absolute -top-4 -right-4 bg-white text-black rounded-full w-10 h-10 flex items-center justify-center text-2xl hover:bg-gray-200 z-20 shadow-lg">
+                        ×
+                    </button>
+                    <div class="relative bg-black rounded-lg overflow-hidden">
+                        <video id="modalVideo" class="w-full max-h-[80vh] object-contain" controls autoplay>
+                            <source src="ecbccfa51bfe467e83a4c7c54b921481.mov" type="video/quicktime">
+                            <source src="ecbccfa51bfe467e83a4c7c54b921481.mp4" type="video/mp4">
+                            <source src="ecbccfa51bfe467e83a4c7c54b921481.webm" type="video/webm">
+                            <!-- Fallback for unsupported video -->
+                            <div class="flex items-center justify-center h-96 bg-gradient-to-br from-yellow-100 to-yellow-200 text-center p-8">
+                                <div class="text-yellow-700">
+                                    <div class="text-6xl mb-4">🎬</div>
+                                    <h3 class="text-2xl font-bold mb-4">วิดีโอพิเศษ</h3>
+                                    <p class="text-lg mb-4">ไฟล์วิดีโอ: ecbccfa51bfe467e83a4c7c54b921481.mov</p>
+                                    <p class="text-gray-600 mb-6">เบราว์เซอร์ไม่รองรับรูปแบบวิดีโอนี้</p>
+                                    <div class="text-4xl mb-4">💕</div>
+                                    <p class="text-lg">ลองเปิดไฟล์วิดีโอโดยตรงหรือแปลงเป็น MP4 ✨</p>
+                                </div>
+                            </div>
+                        </video>
+                        <!-- Video title overlay -->
+                        <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black to-transparent p-4">
+                            <h3 class="text-white text-xl font-bold">วิดีโอความทรงจำพิเศษ 💕</h3>
+                            <p class="text-gray-300 text-sm">ecbccfa51bfe467e83a4c7c54b921481.mov</p>
+                        </div>
+                    </div>
+                    <!-- Instructions -->
+                    <div class="text-center mt-4 text-white">
+                        <p class="text-sm opacity-80">กด ESC หรือคลิกนอกวิดีโอเพื่อปิด</p>
+                    </div>
+                </div>
+            `;
+            
+            document.body.appendChild(modal);
+            
+            // Add event listeners
+            modal.addEventListener('click', function(e) {
+                if (e.target === modal) {
+                    closeVideoModal(modal.querySelector('button'));
+                }
+            });
+            
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape') {
+                    closeVideoModal(modal.querySelector('button'));
+                }
+            });
+            
+            // Handle video load error
+            const video = modal.querySelector('#modalVideo');
+            video.addEventListener('error', function() {
+                console.log('🎬 ไม่สามารถโหลดวิดีโอได้: ecbccfa51bfe467e83a4c7c54b921481.mov');
+            });
+            
+            video.addEventListener('loadeddata', function() {
+                console.log('🎬 วิดีโอโหลดสำเร็จ!');
+            });
+        }
+        
+        function closeVideoModal(button) {
+            const modal = button.closest('.fixed');
+            const video = modal.querySelector('video');
+            if (video) {
+                video.pause();
+                video.currentTime = 0;
+            }
+            modal.remove();
+        }
+    </script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'98b648ba35bd7335',t:'MTc1OTkzMzI4MS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
