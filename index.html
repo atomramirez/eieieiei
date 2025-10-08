@@ -8,6 +8,10 @@
     <style>
         body {
             box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            background: #000;
+            overflow: hidden;
         }
         
         /* Mobile and Tablet Responsive Adjustments */
@@ -57,7 +61,14 @@
             }
             
             .photo-frame {
-                height: 200px;
+                height: 240px;
+                margin-bottom: 1rem;
+            }
+            
+            /* Gallery specific mobile adjustments */
+            .grid.grid-cols-1.md\\:grid-cols-2.lg\\:grid-cols-3 {
+                grid-template-columns: 1fr;
+                gap: 1rem;
             }
             
             .meaning-card {
@@ -213,13 +224,15 @@
             top: 0;
             left: 0;
             width: 100%;
-            min-height: 100vh;
+            height: 100%;
             opacity: 0;
             transform: translateX(30px);
             transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
             pointer-events: none;
             display: flex;
             flex-direction: column;
+            overflow-y: auto;
+            overflow-x: hidden;
         }
         
         .page.active {
@@ -250,18 +263,22 @@
         
         .gradient-bg-1 {
             background: linear-gradient(135deg, #fdf2f8 0%, #fce7f3 25%, #f3e8ff 50%, #e0e7ff 75%, #f0f9ff 100%);
+            height: 100%;
         }
         
         .gradient-bg-2 {
             background: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 25%, #bbf7d0 50%, #86efac 75%, #4ade80 100%);
+            height: 100%;
         }
         
         .gradient-bg-3 {
             background: linear-gradient(135deg, #fef3c7 0%, #fde68a 25%, #fcd34d 50%, #f59e0b 75%, #d97706 100%);
+            height: 100%;
         }
         
         .gradient-bg-4 {
             background: linear-gradient(135deg, #e0e7ff 0%, #c7d2fe 25%, #a5b4fc 50%, #818cf8 75%, #6366f1 100%);
+            height: 100%;
         }
         
         .floating {
@@ -1033,7 +1050,7 @@
 
     </style>
 </head>
-<body class="h-full overflow-hidden">
+<body class="h-full">
     <!-- Hidden Music System (Auto-play only) -->
     <div id="musicSystem" style="display: none;"></div>
 
@@ -1186,34 +1203,34 @@
                     ความทรงจำของเรา ✨
                 </h2>
                 
-                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-8">
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-8">
                     <!-- รูปที่ 1 -->
-                    <div class="photo-frame rounded-2xl h-64 overflow-hidden cursor-pointer group">
+                    <div class="photo-frame rounded-2xl h-48 sm:h-56 md:h-64 overflow-hidden cursor-pointer group">
                         <img src="./IMG_20240312_225822.jpg" alt="ความทรงจำพิเศษ - 12 มีนาคม 2567" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300" onerror="this.style.display='none'; this.parentElement.innerHTML='<div class=\'h-full flex items-center justify-center bg-gradient-to-br from-pink-100 to-pink-200\'><div class=\'text-center text-pink-600\'><div class=\'text-4xl mb-2\'>📸</div><div class=\'text-lg font-medium\'>รูปที่ 1</div><div class=\'text-sm opacity-70\'>12 มีนาคม 2567</div></div></div>';">
                     </div>
                     
                     <!-- รูปที่ 2 -->
-                    <div class="photo-frame rounded-2xl h-64 overflow-hidden cursor-pointer group">
+                    <div class="photo-frame rounded-2xl h-48 sm:h-56 md:h-64 overflow-hidden cursor-pointer group">
                         <img src="./IMG_20240829_212239.jpg" alt="ช่วงเวลาแห่งความสุข - 29 สิงหาคม 2567" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300" onerror="this.style.display='none'; this.parentElement.innerHTML='<div class=\'h-full flex items-center justify-center bg-gradient-to-br from-green-100 to-green-200\'><div class=\'text-center text-green-600\'><div class=\'text-4xl mb-2\'>💕</div><div class=\'text-lg font-medium\'>รูปที่ 2</div><div class=\'text-sm opacity-70\'>29 สิงหาคม 2567</div></div></div>';">
                     </div>
                     
                     <!-- รูปที่ 3 -->
-                    <div class="photo-frame rounded-2xl h-64 overflow-hidden cursor-pointer group">
+                    <div class="photo-frame rounded-2xl h-48 sm:h-56 md:h-64 overflow-hidden cursor-pointer group">
                         <img src="./IMG_20250524_112356.jpg" alt="วันพิเศษของเรา - 24 พฤษภาคม 2568" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300" onerror="this.style.display='none'; this.parentElement.innerHTML='<div class=\'h-full flex items-center justify-center bg-gradient-to-br from-blue-100 to-blue-200\'><div class=\'text-center text-blue-600\'><div class=\'text-4xl mb-2\'>🎉</div><div class=\'text-lg font-medium\'>รูปที่ 3</div><div class=\'text-sm opacity-70\'>24 พฤษภาคม 2568</div></div></div>';">
                     </div>
                     
                     <!-- รูปที่ 4 -->
-                    <div class="photo-frame rounded-2xl h-64 overflow-hidden cursor-pointer group">
+                    <div class="photo-frame rounded-2xl h-48 sm:h-56 md:h-64 overflow-hidden cursor-pointer group">
                         <img src="IMG_1266.jpeg" alt="ความทรงจำดีๆ" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300" onerror="this.style.display='none'; this.parentElement.innerHTML='<div class=\'h-full flex items-center justify-center bg-gradient-to-br from-purple-100 to-purple-200\'><div class=\'text-center text-purple-600\'><div class=\'text-4xl mb-2\'>🌟</div><div class=\'text-lg font-medium\'>รูปที่ 4</div><div class=\'text-sm opacity-70\'>ช่วงเวลาพิเศษ</div></div></div>';">
                     </div>
                     
                     <!-- รูปที่ 5 -->
-                    <div class="photo-frame rounded-2xl h-64 overflow-hidden cursor-pointer group">
+                    <div class="photo-frame rounded-2xl h-48 sm:h-56 md:h-64 overflow-hidden cursor-pointer group">
                         <img src="./IMG_20250130_012947_Original.jpg" alt="ความสุขของเรา - 30 มกราคม 2568" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300" onerror="this.style.display='none'; this.parentElement.innerHTML='<div class=\'h-full flex items-center justify-center bg-gradient-to-br from-rose-100 to-rose-200\'><div class=\'text-center text-rose-600\'><div class=\'text-4xl mb-2\'>💖</div><div class=\'text-lg font-medium\'>รูปที่ 5</div><div class=\'text-sm opacity-70\'>30 มกราคม 2568</div></div></div>';">
                     </div>
                     
                     <!-- วิดีโอ -->
-                    <div class="photo-frame rounded-2xl h-64 overflow-hidden cursor-pointer group relative" onclick="playVideo()">
+                    <div class="photo-frame rounded-2xl h-48 sm:h-56 md:h-64 overflow-hidden cursor-pointer group relative" onclick="playVideo()">
                         <video id="galleryVideo" class="w-full h-full object-cover" muted autoplay loop preload="metadata" poster="">
                             <source src="ecbccfa51bfe467e83a4c7c54b921481.mov" type="video/quicktime">
                             <source src="ecbccfa51bfe467e83a4c7c54b921481.mp4" type="video/mp4">
@@ -1354,12 +1371,49 @@
 
                 
                 <!-- Floating Message -->
-                <div class="floating-message">
+                <div class="floating-message mb-16">
                     <div class="message-bubble">
                         <p class="text-lg text-gray-700 font-medium">
                             "ความรักของเราเหมือนงานศิลปะที่สวยงาม<br>
                             เต็มไปด้วยสีสันและความหมายที่ลึกซึ้ง" 🎨💕
                         </p>
+                    </div>
+                </div>
+                
+                <!-- เพิ่มเนื้อหาด้านล่าง -->
+                <div class="space-y-12">
+                    <div class="text-center">
+                        <div class="text-2xl text-gray-600 font-medium mb-6">
+                            ✨ ความหมายของความรัก ✨
+                        </div>
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                            <div class="animated-card card-1">
+                                <div class="card-glow"></div>
+                                <div class="text-4xl mb-4">💖</div>
+                                <h3 class="text-xl font-bold text-gray-700 mb-2">ความเข้าใจ</h3>
+                                <p class="text-gray-600">เราเข้าใจกันและกันอย่างลึกซึ้ง</p>
+                            </div>
+                            <div class="animated-card card-2">
+                                <div class="card-glow"></div>
+                                <div class="text-4xl mb-4">🌟</div>
+                                <h3 class="text-xl font-bold text-gray-700 mb-2">ความไว้วางใจ</h3>
+                                <p class="text-gray-600">เราไว้วางใจและพึ่งพาซึ่งกันและกัน</p>
+                            </div>
+                            <div class="animated-card card-3">
+                                <div class="card-glow"></div>
+                                <div class="text-4xl mb-4">🦋</div>
+                                <h3 class="text-xl font-bold text-gray-700 mb-2">ความสุข</h3>
+                                <p class="text-gray-600">เราสร้างความสุขให้กันทุกวัน</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="text-center">
+                        <div class="text-lg text-gray-600 leading-relaxed max-w-3xl mx-auto">
+                            "ความรักที่แท้จริงไม่ใช่แค่คำพูด<br>
+                            แต่เป็นการกระทำที่แสดงออกทุกวัน<br>
+                            ด้วยความเอาใจใส่และความห่วงใย 💕"
+                        </div>
                     </div>
                 </div>
             </div>
@@ -1388,9 +1442,9 @@
             <div class="bubble" style="width: 32px; height: 32px; left: 88%; top: 25%; animation-delay: 2.5s; background: radial-gradient(circle at 30% 30%, rgba(99, 102, 241, 0.8), rgba(99, 102, 241, 0.1));"></div>
         </div>
         
-        <div class="flex-1 flex items-center justify-center px-4 py-12 relative z-10">
+        <div class="flex-1 px-4 py-8 relative z-10">
             <div class="max-w-4xl mx-auto text-center">
-                <div class="memory-card rounded-3xl p-12">
+                <div class="memory-card rounded-3xl p-12 mb-16">
                     <h2 class="text-3xl md:text-4xl font-bold text-gray-700 mb-6">
                         ข้อความพิเศษ 💌
                     </h2>
@@ -1408,6 +1462,45 @@
                         และขอให้ความรักของเราดำเนินต่อไปอย่างมีความสุขตลอดไป ✨"
                     </div>
                     <div class="text-4xl">💕 🎉 💖 🌟 💗</div>
+                </div>
+                
+                <!-- เพิ่มเนื้อหาด้านล่าง -->
+                <div class="space-y-12">
+                    <div class="text-center">
+                        <div class="text-2xl text-gray-600 font-medium mb-6">
+                            💜 คำสัญญาของเรา 💜
+                        </div>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                            <div class="memory-card rounded-2xl p-6">
+                                <div class="text-3xl mb-4">🤝</div>
+                                <h3 class="text-lg font-bold text-gray-700 mb-2">สัญญาที่จะดูแลกัน</h3>
+                                <p class="text-gray-600">ในทุกช่วงเวลา ทั้งสุขและทุกข์</p>
+                            </div>
+                            <div class="memory-card rounded-2xl p-6">
+                                <div class="text-3xl mb-4">🌈</div>
+                                <h3 class="text-lg font-bold text-gray-700 mb-2">สัญญาที่จะสร้างความสุข</h3>
+                                <p class="text-gray-600">ให้กันและกันทุกวัน</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="text-center">
+                        <div class="text-lg text-gray-600 leading-relaxed max-w-3xl mx-auto">
+                            "ขอให้เราเดินทางต่อไปด้วยกัน<br>
+                            สร้างความทรงจำใหม่ๆ ที่สวยงาม<br>
+                            และรักกันไปตลอดกาล 💙💜"
+                        </div>
+                    </div>
+                    
+                    <div class="text-center">
+                        <div class="text-4xl space-x-4">
+                            <span class="floating">💙</span>
+                            <span class="floating" style="animation-delay: 0.5s;">💜</span>
+                            <span class="floating" style="animation-delay: 1s;">💎</span>
+                            <span class="floating" style="animation-delay: 1.5s;">🌙</span>
+                            <span class="floating" style="animation-delay: 2s;">⭐</span>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -1904,5 +1997,5 @@
             modal.remove();
         }
     </script>
-<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'98b66f50033f7335',t:'MTc1OTkzNDg2MS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'98b688dd55b37335',t:'MTc1OTkzNTkwOC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
